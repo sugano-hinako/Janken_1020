@@ -15,7 +15,8 @@ public class GameControll {
     //ゲームスタート
     public void start() {
     	System.out.println("じゃんけんスタート！");
-
+    }
+    public void game() {
     	do {
             myHand.setHand();
             opponentHand.setRandomHand();
@@ -23,6 +24,11 @@ public class GameControll {
         }while(rule.isDraw(myHand, opponentHand));
 
         rule.showResult(myHand, opponentHand);
+    }
+    public void judge() {
+    	System.out.print("あなたは" + rule.win + "回勝って");
+    	System.out.print(rule.draw + "回あいこで");
+    	System.out.println(rule.lose + "回負けました。");
     }
 
     //ゲーム終了

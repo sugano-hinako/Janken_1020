@@ -1,6 +1,10 @@
 package janken_game;
 
 public class Rule {
+	public int win;
+	public int lose;
+	public int draw;
+
 	//自分の手と相手の手を表示する
 	public void showHands(Hand myHand, Hand opponetHand) {
 		System.out.print("私の手は、"+ myHand.handName() +"!");
@@ -12,6 +16,7 @@ public class Rule {
 	public boolean isDraw(Hand myHand, Hand opponetHand) {
 		if(myHand.hand() == opponetHand.hand()) {
 			System.out.println("あいこ！");
+			draw ++;
             return true;
 		}
 		return false;
@@ -25,8 +30,10 @@ public class Rule {
 	       (myHand.hand() == 2 && opponetHand.hand() == 3) ||
 	       (myHand.hand() == 3 && opponetHand.hand() == 1)) {
 	            result = "勝ち";
+	            win ++;
 	        }else {
 	            result = "負け";
+	            lose ++;
 	        }
 		System.out.println("あなたの" + result + "です。");
 	}
