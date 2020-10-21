@@ -31,11 +31,18 @@ public class Rule {
 	       (myHand.hand() == 3 && opponetHand.hand() == 1)) {
 	            result = "勝ち";
 	            win ++;
-	        }else {
+	            System.out.println("あなたの" + result + "です。");
+	        }else if((myHand.hand() == 1 && opponetHand.hand() == 3) ||
+	       (myHand.hand() == 2 && opponetHand.hand() == 1) ||
+	       (myHand.hand() == 3 && opponetHand.hand() == 2)) {
 	            result = "負け";
 	            lose ++;
+	            System.out.println("あなたの" + result + "です。");
+	        } else {
+	        	result = "あいこ";
+	        	draw ++;
+	        	System.out.println(result + "です。");
 	        }
-		System.out.println("あなたの" + result + "です。");
 	}
 
 }

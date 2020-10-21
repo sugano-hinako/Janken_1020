@@ -14,15 +14,13 @@ public class GameControll {
 
     //ゲームスタート
     public void start() {
+    	System.out.print("3回勝負！");
     	System.out.println("じゃんけんスタート！");
     }
     public void game() {
-    	do {
-            myHand.setHand();
-            opponentHand.setRandomHand();
-            rule.showHands(myHand, opponentHand);
-        }while(rule.isDraw(myHand, opponentHand));
-
+    	myHand.setHand();
+    	opponentHand.setRandomHand();
+        rule.showHands(myHand, opponentHand);
         rule.showResult(myHand, opponentHand);
     }
     public void judge() {
