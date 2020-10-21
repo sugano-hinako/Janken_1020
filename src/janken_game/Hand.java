@@ -6,26 +6,45 @@ import java.util.Scanner;
 
 public class Hand {
 	private int hand;
+	private int count = 0;
 
 	// 手を入力で指定
 	public void setHand() {
-		System.out.println("何を出しますか？");
-		System.out.println("グー：1、チョキ：2、パー：3");
+		count = 0;
+		do {
+			System.out.println("何を出しますか？");
+			System.out.println("グー：1、チョキ：2、パー：3");
+		} while (!isNumber());
+	}
 
-		while (true) {
+	/**
+	 * 入力値が1か2か3であるか判定する
+	 * 1,2,3, 数値以外 ならfalseを返す
+	 * @return
+	 */
+	private boolean isNumber() {
+		
+		if (count<10) {// 10回以上間違えるようなら強制的に"グー"を設定する
 			try {
 				Scanner scan = new Scanner(System.in);
 				this.hand = scan.nextInt();
-				if (hand == 0 || hand >= 4) {
+				if (!(hand == 1 || hand == 2 || hand == 3)) {
 					System.out.println("数値は1,2,3から選んでください");
-					this.hand = scan.nextInt();
 					// 連続でできない ２回連続で正しくない数値を入れるとnullが返ってくる
+					count++;
+					return false;
 				}
-				break;
+				return true;
 			} catch (InputMismatchException e) {
 				System.out.println("数値で入力してください。");
+				count++;
+				return false;
 			}
+		}else {
+			this.hand = 1;
+			return true;
 		}
+
 	}
 
 	// 手をランダムに設定
