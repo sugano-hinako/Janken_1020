@@ -7,8 +7,11 @@ public class Main {
 		GameControll gc = new GameControll();
 		gc.start(); // ゲーム開始
 		for(int count = 0; count < 5; count++) {
+			System.out.println("カウント"+ count);
+			//あいこがカウントされない
 			gc.game();
-			count++;
+			/*↓なぜかここでもう一度＋１する設定にしていた
+			count += 1;*/
 		}
 		gc.judge();
         gc.end();   // ゲーム終了
