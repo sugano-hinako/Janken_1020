@@ -26,9 +26,11 @@ public class GameControll {
 	}
 
 	public void judge() {
-		System.out.print("あなたは" + rule.win + "回勝って");
-		System.out.print(rule.draw + "回あいこで");
-		System.out.println(rule.lose + "回負けました。");
+		System.out.println("☆最終結果☆");
+		System.out.println("----------------");
+		System.out.println("勝ち: " + rule.win + "回");
+		System.out.println("負け: " + rule.lose + "回");
+		System.out.println("あいこ: " + rule.draw + "回");
 	}
 
 	// ゲーム終了

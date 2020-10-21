@@ -42,9 +42,9 @@ public class Rule {
 		}
 
 		if (result.equals(DRAW)) {
-			System.out.println(result + "です。");
+			System.out.println(result + "です。\n");
 		} else {
-			System.out.println("あなたの" + result + "です。");
+			System.out.println("あなたの" + result + "です。\n");
 		}
 	}
 
