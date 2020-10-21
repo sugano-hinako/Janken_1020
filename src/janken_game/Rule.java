@@ -4,6 +4,9 @@ public class Rule {
 	public int win;
 	public int lose;
 	public int draw;
+	private final String WIN = "勝ち";
+	private final String LOSE = "負け";
+	private final String DRAW = "あいこ";
 
 	// 自分の手と相手の手を表示する
 	public void showHands(Hand myHand, Hand opponetHand) {
@@ -26,20 +29,22 @@ public class Rule {
 	public void showResult(Hand myHand, Hand opponetHand) {
 		String result;
 		// 1.グー 2.チョキ 3.パー
-		if ((myHand.hand() == 1 && opponetHand.hand() == 2) || (myHand.hand() == 2 && opponetHand.hand() == 3)
-				|| (myHand.hand() == 3 && opponetHand.hand() == 1)) {
-			result = "勝ち";
+		// 1 < 2 < 3
+		if ((myHand.hand() < opponetHand.hand()) || (myHand.hand() == 3 && opponetHand.hand() == 1)) {
+			result = WIN;
 			win++;
-			System.out.println("あなたの" + result + "です。");
-		} else if ((myHand.hand() == 1 && opponetHand.hand() == 3) || (myHand.hand() == 2 && opponetHand.hand() == 1)
-				|| (myHand.hand() == 3 && opponetHand.hand() == 2)) {
-			result = "負け";
-			lose++;
-			System.out.println("あなたの" + result + "です。");
-		} else {
-			result = "あいこ";
+		} else if (myHand.hand() == opponetHand.hand()) {
+			result = DRAW;
 			draw++;
+		} else {
+			result = LOSE;
+			lose++;
+		}
+
+		if (result.equals(DRAW)) {
 			System.out.println(result + "です。");
+		} else {
+			System.out.println("あなたの" + result + "です。");
 		}
 	}
 
