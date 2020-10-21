@@ -16,6 +16,11 @@ public class Hand {
         	try {
         		Scanner scan = new Scanner(System.in);
                 this.hand = scan.nextInt();
+                if(hand == 0 || hand >= 4) {
+                	System.out.println("数値は1,2,3から選んでください");
+                	this.hand = scan.nextInt();
+                	//連続でできない　２回連続で正しくない数値を入れるとnullが返ってくる
+                }
                 break;
         	}catch(InputMismatchException e) {
         		System.out.println("数値で入力してください。");
