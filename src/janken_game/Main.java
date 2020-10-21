@@ -6,7 +6,7 @@ public class Main {
 		// TODO 自動生成されたメソッド・スタブ
 		GameControll gc = new GameControll();
 		gc.start(); // ゲーム開始
-		for(int count = 0; count < 5; count++) {
+		for(int count = 0; count < 3; count++) {
 			System.out.println("カウント"+ count);
 			//あいこがカウントされない
 			gc.game();
